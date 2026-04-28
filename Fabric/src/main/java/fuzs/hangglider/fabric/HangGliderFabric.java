@@ -1,6 +1,6 @@
 package fuzs.hangglider.fabric;
 
-import fuzs.hangglider.HangGlider;
+import fuzs.hangglider.common.HangGlider;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import net.fabricmc.api.ModInitializer;
 
