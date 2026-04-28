@@ -8,13 +8,13 @@ import fuzs.hangglider.client.handler.GlidingCameraHandler;
 import fuzs.hangglider.client.model.GliderModel;
 import fuzs.hangglider.client.renderer.entity.layers.GliderLayer;
 import fuzs.hangglider.client.renderer.item.properties.conditional.GliderDeployed;
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.GuiLayersContext;
-import fuzs.puzzleslib.api.client.core.v1.context.ItemModelsContext;
-import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
-import fuzs.puzzleslib.api.client.event.v1.ClientTickEvents;
-import fuzs.puzzleslib.api.client.event.v1.entity.player.ComputeFovModifierCallback;
-import fuzs.puzzleslib.api.client.event.v1.renderer.*;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.common.api.client.core.v1.context.GuiLayersContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.ItemModelsContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.LayerDefinitionsContext;
+import fuzs.puzzleslib.common.api.client.event.v1.ClientTickEvents;
+import fuzs.puzzleslib.common.api.client.event.v1.entity.player.ComputeFovModifierCallback;
+import fuzs.puzzleslib.common.api.client.event.v1.renderer.*;
 
 public class HangGliderClient implements ClientModConstructor {
 
@@ -24,7 +24,7 @@ public class HangGliderClient implements ClientModConstructor {
     }
 
     private static void registerEventHandlers() {
-        ExtractRenderStateCallback.EVENT.register(GliderRenderHandler::onExtractRenderState);
+        ExtractEntityRenderStateCallback.EVENT.register(GliderRenderHandler::onExtractEntityRenderState);
         ComputeFovModifierCallback.EVENT.register(FovModifierHandler::onComputeFovModifier);
         ClientTickEvents.END.register(GlidingCameraHandler::onEndClientTick);
         ClientTickEvents.END.register(ElytraEquippedHandler::onEndClientTick);

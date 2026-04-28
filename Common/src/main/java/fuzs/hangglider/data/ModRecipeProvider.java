@@ -2,9 +2,10 @@ package fuzs.hangglider.data;
 
 import fuzs.hangglider.HangGlider;
 import fuzs.hangglider.init.ModRegistry;
-import fuzs.puzzleslib.api.data.v2.AbstractRecipeProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.api.data.v2.recipes.TransmuteShapedRecipeBuilder;
+import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.recipes.TransmuteShapedRecipeBuilder;
+import fuzs.puzzleslib.common.api.init.v3.registry.ContentRegistrationHelper;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -44,7 +45,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .unlockedBy(getHasName(ModRegistry.GLIDER_FRAMEWORK_ITEM.value()),
                         this.has(ModRegistry.GLIDER_FRAMEWORK_ITEM.value()))
                 .save(recipeOutput);
-        TransmuteShapedRecipeBuilder.shaped(TransmuteShapedRecipeBuilder.getRecipeSerializer(HangGlider.MOD_ID),
+        TransmuteShapedRecipeBuilder.shaped(ContentRegistrationHelper.getTransmuteShapedRecipeSerializer(HangGlider.MOD_ID),
                         this.items(),
                         RecipeCategory.TOOLS,
                         ModRegistry.REINFORCED_HANG_GLIDER_ITEM.value())

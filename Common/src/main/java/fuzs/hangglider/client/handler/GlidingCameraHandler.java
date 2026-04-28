@@ -4,14 +4,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.hangglider.HangGlider;
 import fuzs.hangglider.config.ClientConfig;
 import fuzs.hangglider.init.ModRegistry;
-import fuzs.puzzleslib.api.event.v1.core.EventResult;
-import fuzs.puzzleslib.api.event.v1.data.MutableFloat;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.common.api.event.v1.data.MutableFloat;
 import net.minecraft.client.Camera;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.player.AbstractClientPlayer;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
@@ -83,7 +82,7 @@ public class GlidingCameraHandler {
         }
     }
 
-    public static void onComputeCameraRoll(GameRenderer gameRenderer, Camera camera, float partialTick, MutableFloat pitch, MutableFloat yaw, MutableFloat roll) {
+    public static void onComputeCameraRoll(Camera camera, float partialTick, MutableFloat pitch, MutableFloat yaw, MutableFloat roll) {
         if (HangGlider.CONFIG.get(ClientConfig.class).glidingCameraTilt) {
             if (gliderRotation != 0.0F || gliderRotationOld != 0.0F) {
                 roll.accept(Mth.lerp(partialTick, gliderRotationOld, gliderRotation));

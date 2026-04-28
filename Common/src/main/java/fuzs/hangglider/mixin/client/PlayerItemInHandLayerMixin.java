@@ -2,7 +2,7 @@ package fuzs.hangglider.mixin.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.hangglider.client.handler.GliderRenderHandler;
-import fuzs.puzzleslib.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
 import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;

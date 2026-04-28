@@ -1,7 +1,7 @@
 package fuzs.hangglider.client.handler;
 
 import fuzs.hangglider.init.ModRegistry;
-import fuzs.puzzleslib.api.event.v1.data.MutableFloat;
+import fuzs.puzzleslib.common.api.event.v1.data.MutableFloat;
 import net.minecraft.world.entity.player.Player;
 
 public class FovModifierHandler {

@@ -5,8 +5,8 @@ import com.mojang.math.Axis;
 import fuzs.hangglider.HangGlider;
 import fuzs.hangglider.helper.PlayerGlidingHelper;
 import fuzs.hangglider.init.ModRegistry;
-import fuzs.puzzleslib.api.client.renderer.v1.RenderStateExtraData;
-import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
@@ -29,7 +29,7 @@ public class GliderRenderHandler {
 
     private static boolean appliedGlidingRotations;
 
-    public static void onExtractRenderState(Entity entity, EntityRenderState renderState, float partialTick) {
+    public static void onExtractEntityRenderState(Entity entity, EntityRenderState renderState, float partialTick) {
         if (entity instanceof Player player && renderState instanceof AvatarRenderState avatarRenderState) {
             RenderStateExtraData.set(renderState, GLIDER_IN_HAND_KEY, PlayerGlidingHelper.getGliderInHand(player));
             RenderStateExtraData.set(renderState,

@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "hangglider",
         "group": "fuzs.hangglider",
         "name": "Hang Glider",
-        "version": "21.11.0",
+        "version": "26.1.0",
         "authors": [
             "gr8pefish",
             "Fuzs"
@@ -37,13 +38,13 @@
     ],
     "links": [
         {
-            "name": "github",
-            "slug": "hangglider"
-        },
-        {
             "name": "curseforge",
             "slug": "hang-glider",
             "id": "852668"
+        },
+        {
+            "name": "github",
+            "slug": "hang-glider"
         },
         {
             "name": "modrinth",

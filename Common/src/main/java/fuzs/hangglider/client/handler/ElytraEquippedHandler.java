@@ -3,17 +3,17 @@ package fuzs.hangglider.client.handler;
 import fuzs.hangglider.HangGlider;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.model.Material;
+import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public class ElytraEquippedHandler {
-    public static final Material CROSS_MATERIAL = new Material(TextureAtlas.LOCATION_BLOCKS,
+    public static final SpriteId CROSS_MATERIAL = new SpriteId(TextureAtlas.LOCATION_BLOCKS,
             HangGlider.id("item/cross"));
 
     private static int tickTime;
@@ -28,11 +28,11 @@ public class ElytraEquippedHandler {
         tickTime = 40;
     }
 
-    public static void render(GuiGraphics guiGraphics, DeltaTracker deltaTracker) {
+    public static void render(GuiGraphicsExtractor guiGraphics, DeltaTracker deltaTracker) {
         if (tickTime > 0) {
             int leftPos = (guiGraphics.guiWidth() - 16) / 2;
             int topPos = guiGraphics.guiHeight() / 2 + 16;
-            guiGraphics.renderItem(new ItemStack(Items.ELYTRA), leftPos, topPos);
+            guiGraphics.item(new ItemStack(Items.ELYTRA), leftPos, topPos);
             float alpha = (float) (Math.sin((tickTime - deltaTracker.getGameTimeDeltaPartialTick(false)) * 0.5) * 0.5
                     + 0.5);
             TextureAtlasSprite textureAtlasSprite = guiGraphics.getSprite(CROSS_MATERIAL);

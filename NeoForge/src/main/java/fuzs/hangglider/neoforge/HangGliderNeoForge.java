@@ -3,7 +3,7 @@ package fuzs.hangglider.neoforge;
 import fuzs.hangglider.HangGlider;
 import fuzs.hangglider.data.tags.ModItemTagProvider;
 import fuzs.hangglider.data.ModRecipeProvider;
-import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.neoforged.fml.common.Mod;
 
