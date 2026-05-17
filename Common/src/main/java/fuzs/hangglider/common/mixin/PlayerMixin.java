@@ -1,5 +1,6 @@
 package fuzs.hangglider.common.mixin;
 
+import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.init.ModRegistry;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,8 +22,8 @@ abstract class PlayerMixin extends LivingEntity {
 
     @Inject(method = "updatePlayerPose", at = @At("HEAD"), cancellable = true)
     protected void updatePlayerPose(CallbackInfo callback) {
-        if (this.canPlayerFitWithinBlocksAndEntitiesWhen(Pose.SWIMMING) &&
-                ModRegistry.GLIDING_ATTACHMENT_TYPE.get(this).gliding()) {
+        if (this.canPlayerFitWithinBlocksAndEntitiesWhen(Pose.SWIMMING)
+                && ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(this, Gliding.EMPTY).gliding()) {
             this.setPose(Pose.SPIN_ATTACK);
             callback.cancel();
         }

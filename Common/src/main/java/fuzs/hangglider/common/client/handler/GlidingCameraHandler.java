@@ -2,6 +2,7 @@ package fuzs.hangglider.common.client.handler;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.hangglider.common.HangGlider;
+import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.config.ClientConfig;
 import fuzs.hangglider.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
@@ -40,7 +41,7 @@ public class GlidingCameraHandler {
     }
 
     private static void setThirdPersonGliding(Player player, Options options) {
-        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player).gliding()) {
+        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY).gliding()) {
             if (oldCameraType == null) {
                 oldCameraType = options.getCameraType();
                 if (options.getCameraType() == CameraType.FIRST_PERSON) {
@@ -61,7 +62,7 @@ public class GlidingCameraHandler {
      *         float)
      */
     private static void updateGlidingRotation(Player player) {
-        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player).gliding()) {
+        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY).gliding()) {
             Vec3 vector3d = player.getViewVector(1.0F);
             Vec3 vector3d1 = player.getDeltaMovement();
             double d0 = vector3d1.horizontalDistanceSqr();
@@ -91,6 +92,7 @@ public class GlidingCameraHandler {
     }
 
     public static EventResult onRenderHand(ItemInHandRenderer itemInHandRenderer, InteractionHand interactionHand, AbstractClientPlayer player, HumanoidArm humanoidArm, ItemStack itemStack, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int combinedLight, float partialTick, float interpolatedPitch, float swingProgress, float equipProgress) {
-        return ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player).gliding() ? EventResult.INTERRUPT : EventResult.PASS;
+        return ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY).gliding() ?
+                EventResult.INTERRUPT : EventResult.PASS;
     }
 }

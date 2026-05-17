@@ -17,7 +17,7 @@ import java.util.Objects;
 public class PlayerGlidingHandler {
 
     public static void onEndPlayerTick(Player player) {
-        Gliding gliding = ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player);
+        Gliding gliding = ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY);
         ItemStack itemStack = PlayerGlidingHelper.getGliderInHand(player);
         if (!itemStack.isEmpty() && !PlayerGlidingHelper.isWearingElytra(player)) {
             if (PlayerGlidingHelper.isAllowedToGlide(player)) {

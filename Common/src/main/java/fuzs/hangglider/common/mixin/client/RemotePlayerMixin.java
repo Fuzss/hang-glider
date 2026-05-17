@@ -1,6 +1,7 @@
 package fuzs.hangglider.common.mixin.client;
 
 import com.mojang.authlib.GameProfile;
+import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.handler.PlayerGlidingHandler;
 import fuzs.hangglider.common.init.ModRegistry;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -22,7 +23,7 @@ abstract class RemotePlayerMixin extends AbstractClientPlayer {
     public void tick(CallbackInfo callback) {
         // We need this hook here, as the remote player recalculates animations
         // after the main player tick method where we usually set this.
-        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.get(this).gliding()) {
+        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(this, Gliding.EMPTY).gliding()) {
             PlayerGlidingHandler.resetClientAnimations(this);
         }
     }

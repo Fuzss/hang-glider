@@ -1,6 +1,7 @@
 package fuzs.hangglider.common.helper;
 
 import fuzs.hangglider.common.HangGlider;
+import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.config.ServerConfig;
 import fuzs.hangglider.common.init.ModRegistry;
 import fuzs.hangglider.common.world.item.component.HangGliderComponent;
@@ -21,8 +22,8 @@ public class PlayerGlidingHelper {
      */
     public static boolean isAllowedToGlide(Player player) {
         // delta movement is not synced to remote players, so this is always false for those, but we just update their animation via mixin
-        return !player.onGround() && !player.isPassenger() && !player.hasEffect(MobEffects.LEVITATION) &&
-                !player.getAbilities().flying && !player.isInWater() && player.getDeltaMovement().y < 0;
+        return !player.onGround() && !player.isPassenger() && !player.hasEffect(MobEffects.LEVITATION)
+                && !player.getAbilities().flying && !player.isInWater() && player.getDeltaMovement().y < 0;
     }
 
     public static boolean isWearingElytra(Player player) {
@@ -46,7 +47,7 @@ public class PlayerGlidingHelper {
      * @return - the first glider found (as an itemstack), null otherwise
      */
     public static ItemStack getGliderInHand(Player player) {
-        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player).deployed()) {
+        if (ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY).deployed()) {
             for (InteractionHand interactionHand : InteractionHand.values()) {
                 ItemStack itemInHand = player.getItemInHand(interactionHand);
                 if (isValidGlider(itemInHand)) {

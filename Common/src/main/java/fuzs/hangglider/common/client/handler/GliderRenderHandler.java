@@ -3,6 +3,7 @@ package fuzs.hangglider.common.client.handler;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import fuzs.hangglider.common.HangGlider;
+import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.helper.PlayerGlidingHelper;
 import fuzs.hangglider.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
@@ -34,7 +35,7 @@ public class GliderRenderHandler {
             RenderStateExtraData.set(renderState, GLIDER_IN_HAND_KEY, PlayerGlidingHelper.getGliderInHand(player));
             RenderStateExtraData.set(renderState,
                     IS_GLIDING_KEY,
-                    ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player).gliding());
+                    ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY).gliding());
             RenderStateExtraData.set(renderState,
                     HEAD_ROT_KEY,
                     Mth.rotLerp(partialTick, player.yHeadRotO, player.yHeadRot));

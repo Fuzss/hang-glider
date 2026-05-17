@@ -5,7 +5,6 @@ import fuzs.hangglider.common.helper.PlayerGlidingHelper;
 import fuzs.hangglider.common.init.ModRegistry;
 import fuzs.hangglider.common.proxy.Proxy;
 import fuzs.puzzleslib.common.api.event.v1.core.EventResultHolder;
-import fuzs.puzzleslib.common.api.util.v1.InteractionResultHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -21,11 +20,11 @@ public class GliderActivationHandler {
                 Proxy.INSTANCE.addElytraWidget();
             } else if (PlayerGlidingHelper.isValidGlider(itemInHand)) {
                 if (!level.isClientSide()) {
-                    Gliding gliding = ModRegistry.GLIDING_ATTACHMENT_TYPE.get(player);
+                    Gliding gliding = ModRegistry.GLIDING_ATTACHMENT_TYPE.getOrDefault(player, Gliding.EMPTY);
                     ModRegistry.GLIDING_ATTACHMENT_TYPE.set(player, gliding.withDeployed(!gliding.deployed()));
                 }
 
-                return EventResultHolder.interrupt(InteractionResultHelper.sidedSuccess(level.isClientSide()));
+                return EventResultHolder.interrupt(InteractionResult.SUCCESS);
             }
 
             return EventResultHolder.interrupt(InteractionResult.FAIL);
