@@ -11,7 +11,7 @@ import fuzs.puzzleslib.common.api.network.v4.PlayerSet;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -44,7 +44,7 @@ public class ModRegistry {
             HANG_GLIDER_ITEM);
 
     public static final DataAttachmentType<Entity, Gliding> GLIDING_ATTACHMENT_TYPE = DataAttachmentRegistry.<Gliding>entityBuilder()
-            .defaultValue(EntityType.PLAYER, Gliding.EMPTY)
+            .defaultValue(EntityTypes.PLAYER, Gliding.EMPTY)
             .persistent(Gliding.CODEC)
             .networkSynchronized(Gliding.STREAM_CODEC, PlayerSet::nearEntity)
             .build(HangGlider.id("gliding"));

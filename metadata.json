@@ -1,10 +1,10 @@
 {
-    "minecraft": "26.1.2",
+    "minecraft": "26.2",
     "mod": {
         "id": "hangglider",
         "group": "fuzs.hangglider",
         "name": "Hang Glider",
-        "version": "26.1.1",
+        "version": "26.2.0",
         "authors": [
             "gr8pefish",
             "Fuzs"
