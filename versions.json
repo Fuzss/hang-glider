@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "852668",
-    "distributions.curseforge.slug": "hang-glider",
-    "distributions.github.slug": "hang-glider",
-    "distributions.modrinth.id": "uHWrqYcS",
-    "distributions.modrinth.slug": "hang-glider"
+  "distributions": {
+    "curseforge": {
+      "id": "852668",
+      "slug": "hang-glider"
+    },
+    "github": {
+      "slug": "hang-glider"
+    },
+    "modrinth": {
+      "id": "uHWrqYcS",
+      "slug": "hang-glider"
+    }
   }
 }
