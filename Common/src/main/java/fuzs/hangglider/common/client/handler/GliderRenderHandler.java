@@ -6,7 +6,7 @@ import fuzs.hangglider.common.HangGlider;
 import fuzs.hangglider.common.attachment.Gliding;
 import fuzs.hangglider.common.helper.PlayerGlidingHelper;
 import fuzs.hangglider.common.init.ModRegistry;
-import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v2.RenderStateExtraData;
 import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
@@ -54,11 +54,11 @@ public class GliderRenderHandler {
             if (RenderStateExtraData.getOrDefault(entityRenderState, IS_GLIDING_KEY, false)) {
                 float headRot = RenderStateExtraData.getOrDefault(entityRenderState, HEAD_ROT_KEY, 0.0F);
                 poseStack.pushPose();
-                poseStack.mulPose(Axis.YP.rotationDegrees(-headRot));
+                poseStack.rotateDegrees(Axis.YP, -headRot);
                 poseStack.translate(0.0F, avatarRenderState.boundingBoxHeight / 2.0F, 0.0F);
-                poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+                poseStack.rotateDegrees(Axis.XP, 90.0F);
                 poseStack.translate(0.0F, -avatarRenderState.boundingBoxHeight / 2.0F, 0.0F);
-                poseStack.mulPose(Axis.YP.rotationDegrees(headRot));
+                poseStack.rotateDegrees(Axis.YP, headRot);
                 // reposition to better align with the bounding box
                 poseStack.translate(0.0F, -0.5F, 0.0F);
                 appliedGlidingRotations = true;

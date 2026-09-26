@@ -30,7 +30,7 @@ public class HangGliderClient implements ClientModConstructor {
         ClientTickEvents.END.register(ElytraEquippedHandler::onEndClientTick);
         SubmitLivingEntityEvents.BEFORE.register(GliderRenderHandler::onBeforeSubmitLivingEntity);
         SubmitLivingEntityEvents.AFTER.register(GliderRenderHandler::onAfterSubmitLivingEntity);
-        RenderHandEvents.BOTH.register(GlidingCameraHandler::onRenderHand);
+        SubmitArmWithItemCallback.EVENT.register(GlidingCameraHandler::onRenderHand);
         ComputeCameraAnglesCallback.EVENT.register(GlidingCameraHandler::onComputeCameraRoll);
         AddLivingEntityRenderLayersCallback.EVENT.register(GliderLayer::addLivingEntityRenderLayers);
     }

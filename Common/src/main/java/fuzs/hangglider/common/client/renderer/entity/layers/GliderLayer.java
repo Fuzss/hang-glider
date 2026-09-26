@@ -6,7 +6,7 @@ import fuzs.hangglider.common.client.handler.GliderRenderHandler;
 import fuzs.hangglider.common.client.model.GliderModel;
 import fuzs.hangglider.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.client.init.v1.ModelLayerFactory;
-import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v2.RenderStateExtraData;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
@@ -53,26 +54,16 @@ public class GliderLayer extends RenderLayer<AvatarRenderState, PlayerModel> {
                     .textureLocation()
                     .map(GliderLayer::getGliderLocation)
                     .orElse(TEXTURE_LOCATION);
+            RenderType renderType = itemStack.hasFoil() ? RenderTypes.armorCutoutNoCullGlint(identifier) :
+                    RenderTypes.armorCutoutNoCull(identifier);
             submitNodeCollector.order(1)
                     .submitModel(this.gliderModel,
                             avatarRenderState,
                             poseStack,
-                            RenderTypes.armorCutoutNoCull(identifier),
+                            renderType,
                             packedLight,
                             OverlayTexture.NO_OVERLAY,
-                            avatarRenderState.outlineColor,
-                            null);
-            if (itemStack.hasFoil()) {
-                submitNodeCollector.order(2)
-                        .submitModel(this.gliderModel,
-                                avatarRenderState,
-                                poseStack,
-                                RenderTypes.armorEntityGlint(),
-                                packedLight,
-                                OverlayTexture.NO_OVERLAY,
-                                avatarRenderState.outlineColor,
-                                null);
-            }
+                            avatarRenderState.outlineColor);
         }
     }
 

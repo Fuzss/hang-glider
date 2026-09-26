@@ -2,8 +2,8 @@ package fuzs.hangglider.common.data.client;
 
 import fuzs.hangglider.common.HangGlider;
 import fuzs.hangglider.common.init.ModRegistry;
-import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v3.language.AbstractLanguageProvider;
+import fuzs.puzzleslib.common.api.data.v3.core.DataProviderContext;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -12,11 +12,11 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
     }
 
     @Override
-    public void addTranslations(TranslationBuilder builder) {
-        builder.add(ModRegistry.CREATIVE_MODE_TAB.value(), HangGlider.MOD_NAME);
-        builder.add(ModRegistry.GLIDER_WING_ITEM.value(), "Glider Wing");
-        builder.add(ModRegistry.GLIDER_FRAMEWORK_ITEM.value(), "Glider Framework");
-        builder.add(ModRegistry.HANG_GLIDER_ITEM.value(), "Hang Glider");
-        builder.add(ModRegistry.REINFORCED_HANG_GLIDER_ITEM.value(), "Reinforced Hang Glider");
+    public void addTranslations() {
+        this.add(ModRegistry.CREATIVE_MODE_TAB.value(), HangGlider.MOD_NAME);
+        this.add(ModRegistry.GLIDER_WING_ITEM.value(), "Glider Wing");
+        this.add(ModRegistry.GLIDER_FRAMEWORK_ITEM.value(), "Glider Framework");
+        this.add(ModRegistry.HANG_GLIDER_ITEM.value(), "Hang Glider");
+        this.add(ModRegistry.REINFORCED_HANG_GLIDER_ITEM.value(), "Reinforced Hang Glider");
     }
 }
