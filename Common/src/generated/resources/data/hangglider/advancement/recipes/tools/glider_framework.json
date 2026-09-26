@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hangglider:glider_framework"
+        "recipes": "hangglider:glider_framework"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

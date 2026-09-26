@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hangglider:glider_wing"
+        "recipes": "hangglider:glider_wing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

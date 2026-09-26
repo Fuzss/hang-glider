@@ -1,0 +1,9 @@
+// 26.3	2026-09-26T18:07:34.991351	Registries for reloadable
+9e3030bf76cc7f12a5ade34ed38947baf45a422d data/hangglider/advancement/recipes/tools/glider_framework.json
+2157ca04caee75232ddc455abbc18e7a101096cc data/hangglider/advancement/recipes/tools/glider_wing.json
+c1df0078432ecbdb13c3e96acdae981b63f9dd81 data/hangglider/advancement/recipes/tools/hang_glider.json
+0b914a342f9c1db7fb37ffaca486fd634d1ac063 data/hangglider/advancement/recipes/tools/reinforced_hang_glider.json
+ef47e40fce587d3721dac0be9e993e74f4522725 data/hangglider/recipe/glider_framework.json
+8ab93e1439a0f6e1318d934ab098ba612e6c9c40 data/hangglider/recipe/glider_wing.json
+2986eda4f962f219af7c898fa6b8bffc2681a87e data/hangglider/recipe/hang_glider.json
+5fd1efee1cc4e98b7a2b576784cd7ca9f8d60d8c data/hangglider/recipe/reinforced_hang_glider.json
