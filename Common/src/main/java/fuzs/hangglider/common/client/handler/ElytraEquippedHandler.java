@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public class ElytraEquippedHandler {
-    public static final SpriteId CROSS_MATERIAL = new SpriteId(TextureAtlas.LOCATION_BLOCKS,
+    public static final SpriteId CROSS_MATERIAL = new SpriteId(TextureAtlas.LOCATION_ITEMS,
             HangGlider.id("item/cross"));
 
     private static int tickTime;
